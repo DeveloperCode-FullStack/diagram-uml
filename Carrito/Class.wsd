@@ -1,0 +1,92 @@
+@startuml
+
+class Persona {
+    - nombre: String
+    - direccion: String
+    - correo: String
+
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + getDireccion(): String
+    + setDireccion(direccion: String): void
+    + getCorreo(): String
+    + setCorreo(correo: String): void
+}
+
+class Categoria {
+    - codigo: String
+    - nombre: String
+
+    + getCodigo(): String
+    + setCodigo(codigo: String): void
+    + getNombre(): String
+    + setNombre(nombre: String): void
+}
+
+class Producto {
+    - codigo: String
+    - nombre: String
+    - precio: Double
+    - cantidad: Int
+    - stock: Int
+    - categoria: Categoria
+
+    + getCodigo(): String
+    + setCodigo(codigo: String): void
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + getPrecio(): Double
+    + setPrecio(precio: Double): void
+    + getCantidad(): Int
+    + setCantidad(cantidad: Int): void
+    + getStock(): Int
+    + setStock(stock: Int): void
+    + getCategoria(): Categoria
+    + setCategoria(categoria: Categoria): void
+}
+
+class Factura {
+    - codigo: Int
+    - fecha: Date
+    - total: Double
+    - persona: Persona
+
+    + getCodigo(): Int
+    + setCodigo(codigo: Int): void
+    + getFecha(): Date
+    + setFecha(fecha: Date): void
+    + getTotal(): Double
+    + setTotal(total: Double): void
+    + getPersona(): Persona
+    + setPersona(persona: Persona): void
+}
+
+class DetalleFactura {
+    - cantidad: Int
+    - subtotal: Double
+    - producto: Producto
+    - factura: Factura
+
+    + getCantidad(): Int
+    + setCantidad(cantidad: Int): void
+    + getSubtotal(): Double
+    + setSubtotal(subtotal: Double): void
+    + getProducto(): Producto
+    + setProducto(producto: Producto): void
+    + getFactura(): Factura
+    + setFactura(factura: Factura): void
+}
+
+Producto --|> Categoria
+DetalleFactura *-- Producto
+DetalleFactura *-- Factura
+Factura --|> Persona
+
+note right
+Plasmar el siguiente diagrama en código Java y crear los respectivos métodos (CRUD) para cada entidad,
+representando la iteración de generación de facturas y el detalle para cada una.
+end note
+
+
+@enduml
+

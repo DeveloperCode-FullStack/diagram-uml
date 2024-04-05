@@ -1,0 +1,41 @@
+@startuml
+
+class Libro {
+    - titulo: String
+    - autor: String
+    - codigo: String
+    + getTitulo(): String
+    + getAutor(): String  
+    + getCodigo(): String
+    + setTitulo(titulo: String): void
+    + setAutor(autor: String): void
+    + setCodigo(codigo: String): void
+    + prestamo(): void
+}
+
+class Persona {
+    - nombre: String
+    - direccion: String
+    + getNombre(): String
+    + getDireccion(): String
+    + getLibro(): Libro
+    + setNombre(nombre: String): void
+    + setDireccion(direccion: String): void
+}
+
+class Prestamo{
+    - fecha: String
+    - libro: Libro    
+    - persona: Persona
+    + getFecha(): String
+    + getLibro(): Libro
+    + getPersona(): Persona
+    + setFecha(fecha: String): void
+    + setLibro(libro: Libro): void
+    + setPersona(persona: Persona): void
+
+}
+Libro --o Prestamo
+Persona --o Prestamo
+
+@enduml
