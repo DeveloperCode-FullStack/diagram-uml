@@ -1,0 +1,48 @@
+@startuml
+
+title Diagrama: Este diagrama representa las clases Autor y Libro junto con sus atributos y relaciones.
+
+class Autor {
+    - Nombre: String
+    - Apellido: String
+    - Nacionalidad: String
+    - FechaNacimiento: Date
+    - Biografia: String
+
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + getApellido(): String
+    + setApellido(apellido: String): void
+    + getNacionalidad(): String
+    + setNacionalidad(nacionalidad: String): void
+    + getFechaNacimiento(): Date
+    + setFechaNacimiento(fechaNacimiento: Date): void
+    + getBiografia(): String
+    + setBiografia(biografia: String): void
+}
+
+class Libro {
+    - Titulo: String
+    - ISBN: String
+    - Genero: String
+    - AnioPublicacion: int
+    - Sinopsis: String
+    - Autor: Autor
+
+    + getTitulo(): String
+    + setTitulo(titulo: String): void
+    + getISBN(): String
+    + setISBN(isbn: String): void
+    + getGenero(): String
+    + setGenero(genero: String): void
+    + getAnioPublicacion(): int
+    + setAnioPublicacion(anioPublicacion: int): void
+    + getSinopsis(): String
+    + setSinopsis(sinopsis: String): void
+    + getAutor(): Autor
+    + setAutor(autor: Autor): void
+}
+
+Libro -- Autor
+
+@enduml
